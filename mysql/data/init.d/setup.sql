@@ -1,0 +1,3 @@
+CREATE DATABASE IF NOT EXISTS `react`;
+
+GRANT ALL PRIVILEGES ON `react`.* TO 'admin'@'%';

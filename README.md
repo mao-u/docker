@@ -1,5 +1,5 @@
 # docker
-learn-docker
+- learn-docker
 
 # todo
 - 個別に実装した各appをdockerで管理していく

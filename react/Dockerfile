@@ -14,31 +14,33 @@ RUN wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 RUN rpm -Uvh remi-release-7*.rpm
 RUN yum-config-manager --enable remi-php70
 
-# install apache2.4
-RUN yum -y install httpd
+# nodejs install
+RUN yum -y install https://rpm.nodesource.com/pub_11.x/el/7/x86_64/nodesource-release-el7-1.noarch.rpm
+RUN yum -y install nodejs
 
-# copy conf
-COPY ./vhost.conf /etc/httpd/conf.d/vhost.conf
+# copy react project
+COPY ./data/react-redux-todo /var/www/html/react-redux-todo
 
-# enable service.
-RUN systemctl enable httpd
+RUN cd /vagrant_data/react-redux-todo/
+
+RUN npm start
 
 # install php7
 RUN \
   yum -y install \
-    php php-common \
-    php-mbstring \
-    php-mcrypt \
-    php-devel \
-    php-xml \
-    php-mysqlnd \
-    php-pdo \
-    php-cli \
-    php-gd \
-    php-xdebug \
-    php-memcached \
-    php-opcache --nogpgcheck \
-    php-bcmath
+  php php-common \
+  php-mbstring \
+  php-mcrypt \
+  php-devel \
+  php-xml \
+  php-mysqlnd \
+  php-pdo \
+  php-cli \
+  php-gd \
+  php-xdebug \
+  php-memcached \
+  php-opcache --nogpgcheck \
+  php-bcmath
 
 # install composer
 RUN curl -sS https://getcomposer.org/installer | php && \

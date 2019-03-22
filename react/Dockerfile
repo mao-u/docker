@@ -20,9 +20,8 @@ RUN yum -y install nodejs
 
 # copy react project
 COPY ./data/react-redux-todo /var/www/html/react-redux-todo
-
 RUN cd /var/www/html/react-redux-todo
-
+RUN npm install --save redux react-redux redux-logger
 RUN npm start
 
 # install php7

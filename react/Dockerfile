@@ -35,6 +35,15 @@ RUN cd /var/www/html/react-redux-todo && \
 RUN cd /var/www/html/react-redux-todo && \
   forever start server.js
 
+# install apache2.4
+RUN yum -y install httpd
+
+# copy conf
+COPY ./vhost.conf /etc/httpd/conf.d/vhost.conf
+
+# enable service.
+RUN systemctl enable httpd
+
 # install php7
 RUN \
   yum -y install \
@@ -60,6 +69,7 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 RUN cp /etc/localtime /etc/localtime.org
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
+EXPOSE 80
 EXPOSE 3000
 
 CMD ["/sbin/init"]

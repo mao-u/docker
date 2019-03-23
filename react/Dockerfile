@@ -25,26 +25,21 @@ COPY ./data/react-redux-todo /var/www/html/react-redux-todo
 
 # npm install
 RUN cd /var/www/html/react-redux-todo && \
-  npm install && \
-  npm cache clear
+  npm install
 
 # react install
 RUN cd /var/www/html/react-redux-todo && \
-  npm install --save  -g create-react-app && \
-  npm cache clear
+  npm install --save  -g create-react-app
 
 RUN cd /var/www/html/react-redux-todo && \
-  npm install --save redux react-redux redux-logger && \
-  npm cache clear
+  npm install --save redux react-redux redux-logger
 
 # nmp start
 RUN cd /var/www/html/react-redux-todo && \
-  npm install --save express && \
-  npm cache clear
+  npm install --save express
 
 RUN cd /var/www/html/react-redux-todo && \
-  npm install --save  -g forever && \
-  npm cache clear
+  npm install --save  -g forever
 
 RUN cd /var/www/html/react-redux-todo && \
   forever start server.js

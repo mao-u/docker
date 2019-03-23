@@ -25,11 +25,25 @@ COPY ./data/react-redux-todo /var/www/html/react-redux-todo
 RUN cd /var/www/html/react-redux-todo && \
   npm install --save redux react-redux redux-logger
 
-EXPOSE 3000
-
 # nmp start
 RUN cd /var/www/html/react-redux-todo && \
-  npm start
+  npm install --save express
+
+RUN cd /var/www/html/react-redux-todo && \
+  node server.js
+
+RUN cd /var/www/html/react-redux-todo && \
+  sudo npm install -g forever
+
+RUN cd /var/www/html/react-redux-todo && \
+  forever start server.js
+
+EXPOSE 3000
+
+
+
+
+
 
 # install php7
 # RUN \

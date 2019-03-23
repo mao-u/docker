@@ -30,9 +30,6 @@ RUN cd /var/www/html/react-redux-todo && \
   npm install --save express
 
 RUN cd /var/www/html/react-redux-todo && \
-  node server.js
-
-RUN cd /var/www/html/react-redux-todo && \
   sudo npm install -g forever
 
 RUN cd /var/www/html/react-redux-todo && \

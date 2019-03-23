@@ -21,6 +21,9 @@ RUN yum -y install nodejs
 # copy react project
 COPY ./data/react-redux-todo /var/www/html/react-redux-todo
 
+RUN cd /var/www/html/react-redux-todo && \
+  npm cache clean
+
 # npm install
 RUN cd /var/www/html/react-redux-todo && \
   npm install

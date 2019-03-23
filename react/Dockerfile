@@ -35,38 +35,31 @@ RUN cd /var/www/html/react-redux-todo && \
 RUN cd /var/www/html/react-redux-todo && \
   forever start server.js
 
-EXPOSE 3000
-
-
-
-
-
-
 # install php7
-# RUN \
-#   yum -y install \
-#   php php-common \
-#   php-mbstring \
-#   php-mcrypt \
-#   php-devel \
-#   php-xml \
-#   php-mysqlnd \
-#   php-pdo \
-#   php-cli \
-#   php-gd \
-#   php-xdebug \
-#   php-memcached \
-#   php-opcache --nogpgcheck \
-#   php-bcmath
+RUN \
+  yum -y install \
+  php php-common \
+  php-mbstring \
+  php-mcrypt \
+  php-devel \
+  php-xml \
+  php-mysqlnd \
+  php-pdo \
+  php-cli \
+  php-gd \
+  php-xdebug \
+  php-memcached \
+  php-opcache --nogpgcheck \
+  php-bcmath
 
 # install composer
-# RUN curl -sS https://getcomposer.org/installer | php && \
-#   mv composer.phar /usr/local/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php && \
+  mv composer.phar /usr/local/bin/composer
 
 # timezone setting
-# RUN cp /etc/localtime /etc/localtime.org
-# RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+RUN cp /etc/localtime /etc/localtime.org
+RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
-# EXPOSE 80
+EXPOSE 3000
 
-# CMD ["/sbin/init"]
+CMD ["/sbin/init"]

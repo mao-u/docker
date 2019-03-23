@@ -5,8 +5,7 @@ services:
     links:
       - mysql
     ports:
-      - "8080:80"
-      - "3000:3000"
+      - "8080:3000"
     volumes:
       - ./react/data:/var/www/html
     depends_on:

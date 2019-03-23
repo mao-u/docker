@@ -23,6 +23,11 @@ RUN npm install -g create-react-app
 # copy react project
 COPY ./data/react-redux-todo /var/www/html/react-redux-todo
 
+# npm install
+RUN cd /var/www/html/react-redux-todo && \
+  npm install && \
+  npm cache clear
+
 # react install
 RUN cd /var/www/html/react-redux-todo && \
   npm install --save  -g create-react-app && \

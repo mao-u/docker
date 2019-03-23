@@ -18,8 +18,6 @@ RUN yum-config-manager --enable remi-php70
 RUN yum -y install https://rpm.nodesource.com/pub_11.x/el/7/x86_64/nodesource-release-el7-1.noarch.rpm
 RUN yum -y install nodejs
 
-RUN npm install -g create-react-app
-
 # copy react project
 COPY ./data/react-redux-todo /var/www/html/react-redux-todo
 
